@@ -212,22 +212,26 @@ p {
 @media (max-width: 600px) {
     #content, #NovoEstilo {
         width: 20rem;
+        margin: 0.5rem; /* Adicionado para garantir algum espaço ao redor dos elementos */
     }
 
     .items {
-        margin-left: 1;
+        margin-left: 0; /* Corrigido para 0 em vez de 1 */
+        display: flex;
+        flex-wrap: wrap; 
+        flex-direction: column;       
     }
 
+
     .pages {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 15rem;
+        margin-top: -2rem;
+        display: flex;
     }
 
     .pages button {
         margin-right: 0;
         margin-bottom: 0.5rem;
+        width: auto; 
     }
 
     .pages img {
@@ -242,13 +246,13 @@ p {
         width: 100%;
     }
 
-    .pesquisas input{
+    .pesquisas input {
         width: 70%;
         margin-top: 1rem;
     }
 
     .pesquisas button {
-        width: 30%;
+        width: 70%;
         margin-top: 1rem;
     }
 
@@ -260,5 +264,10 @@ p {
 
     #titulo_livros {
         font-size: 1.2rem;
+        word-wrap: break-word;
+        text-align: center;
+    }
+    .imagem{
+        margin-right: 0.5rem;
     }
 }
