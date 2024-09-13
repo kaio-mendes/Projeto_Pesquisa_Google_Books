@@ -100,6 +100,8 @@ p {
     padding: 1rem;
     border-radius: 1rem;
     height: auto;
+    width: 40rem;
+    text-align: justify;
 }
 
 .container a {
