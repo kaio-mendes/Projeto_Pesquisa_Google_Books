@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="api.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="open-book.png">
+    <title>Livros</title>
+</head>
+
+<body>
+<nav id="titulo_livros">
+    <a href="index.html">Inicio</a>
+    <a href="meuslivros.html">Meus livros</a>
+</nav>
+<div class="pagina">
+    <h5>Livros: <span id="totalLivros">0</span></h5>
+    <h5>Paginas: <span id="totalPaginas">0</span></h5>
+</div>
+<div id="alinhar_estante">
+    <h1>Meus livros</h1>
+    <div class="flex" id="flex"></div>
+    <h1 id="alerta2"></h1>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const informacoesJSON = localStorage.getItem('bookInfo');
+        if (informacoesJSON) {
+            const informacoes = JSON.parse(informacoesJSON);
+            console.log('Dados carregados do localStorage:', informacoes);
+
+            const flex = document.getElementById('flex');
+            const totalLivrosElement = document.getElementById('totalLivros');
+            const totalPaginasElement = document.getElementById('totalPaginas');
+
+            let totalPaginas = 0;
+
+            if (informacoes.length > 0) {
+                informacoes.forEach(livro => {
+                    const livroDiv = document.createElement('div');
+                    livroDiv.classList.add('livro');
+                    livroDiv.innerHTML = `
+                    <div id="NovoEstilo">
+                        <div class="imagem">
+                            <img src="${livro.imagem}" alt="${livro.titulo}" />
+                        </div>
+                        <div class="items">
+                            <h3>${livro.titulo}</h3>
+                            <h5>${livro.autor.join(', ')}</h5>
+                            <h6>${livro.ano}</h6>
+                            <div class="pages">
+                                <img src="trash.png" onclick="remove('${livro.id}')" alt="Remove" />
+                                <h6>${livro.paginas}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    flex.appendChild(livroDiv);
+
+                    // Adiciona o número de páginas ao total
+                    totalPaginas += livro.paginas;
+                });
+
+                // Atualiza o número total de livros e páginas
+                totalLivrosElement.textContent = informacoes.length;
+                totalPaginasElement.textContent = totalPaginas;
+            } else {
+                document.getElementById("alerta2").textContent = "Não possui livros na sua estante";
+            }
+        } else {
+            document.getElementById("alerta2").textContent = "Não possui livros na sua estante";
+        }
+    });
+
+    function remove(id) {
+        // Obtém a lista de livros
+        let livros = JSON.parse(localStorage.getItem('bookInfo')) || [];
+        
+        // Filtra os livros para remover o livro com o id fornecido
+        livros = livros.filter(livro => livro.id !== id);
+        
+        // Salva a lista atualizada no localStorage
+        localStorage.setItem('bookInfo', JSON.stringify(livros));
+        
+        // Recarrega a página para atualizar a lista
+        window.location.reload();
+    }
+</script>
+</body>
+
+</html>

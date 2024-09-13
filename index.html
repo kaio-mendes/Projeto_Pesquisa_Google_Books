@@ -11,7 +11,10 @@
 </head>
 
 <body>
-
+    <nav id="titulo_livros">
+        <a href="index.html">Inicio</a>
+        <a href="meuslivros.html">Meus livros</a>
+    </nav>
     <div class="pesquisas">
         <h1>Pesquise seus livros:</h1>
         <div class="ser">
@@ -22,9 +25,11 @@
 
     <div class="hide">
         <div class="container">
+            <h3 class="ocultar" id="alerta">testetastst</h3>
             <div id="content">
                 <div class="imagem" id="imagem">
                     <img src="" id="livro" />
+
                 </div>
 
                 <div class="items">
@@ -33,7 +38,7 @@
                     <h6 id="ano"></h6>
                     <div class="pages">
                         <h6 id="pages"></h6>
-                       
+                        <button id="salvar">Salvar Livro</button>
                     </div>
                 </div>
 
@@ -42,64 +47,6 @@
             <a id="buy" href="" target="_blank">Ebook: <span id="valor"></span></a>
         </div>
     </div>
-
-    <script>
-        const hide = document.querySelector(".hide");
-        const pesquisar = document.getElementById("pesquisar");
-
-        async function pesquisa() {
-            const query = pesquisar.value;
-            const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=AIzaSyCGAQVhKymIfZFqE4I7zdotsZ2bD9y3s40`;
-
-            try {
-                let response = await fetch(url);
-                let data = await response.json();
-                handleResponse(data);
-                console.log(data);
-            } catch (error) {
-                console.error('Erro ao buscar dados:', error);
-            }
-        }
-
-        function handleResponse(response) {
-            if (response.items && response.items.length > 0) {
-                const item = response.items[0];
-                const volumeInfo = item.volumeInfo;
-                const saleInfo = item.saleInfo || {};
-                
-                document.getElementById("titulo").innerHTML = volumeInfo.title || 'Título não disponível';
-                document.getElementById("autor").innerHTML = volumeInfo.authors ? volumeInfo.authors.join(', ') : 'Autor não disponível';
-                document.getElementById("pages").innerHTML = volumeInfo.pageCount ? `${volumeInfo.pageCount} Páginas` : 'Número de páginas não disponível';
-                document.getElementById("livro").src = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : '';
-                document.getElementById("description").innerHTML = volumeInfo.description || 'Descrição não disponível';
-                
-                const publishedDate = volumeInfo.publishedDate || '';
-                const year = publishedDate.slice(0, 4);
-                document.getElementById("ano").innerHTML = year;
-
-                document.getElementById("valor").innerHTML ="R$ " + saleInfo.listPrice.amount;
-                document.getElementById("buy").href = saleInfo.buyLink || '#';
-
-                hide.classList.remove("hide");
-            } else {
-                document.getElementById("titulo").innerHTML = 'Nenhum livro encontrado';
-                document.getElementById("autor").innerHTML = '';
-                document.getElementById("livro").src = '';
-                document.getElementById("description").innerHTML = '';
-                document.getElementById("pages").innerHTML = '';
-                document.getElementById("ano").innerHTML = '';
-                document.getElementById("valor").innerHTML = '';
-                document.getElementById("buy").href = '#';
-            }
-        }
-
-        pesquisar.addEventListener("keyup", (e) => {
-            if (e.code === 'Enter') {
-                pesquisa();
-            }
-        });
-    </script>
-
 </body>
 
 </html>

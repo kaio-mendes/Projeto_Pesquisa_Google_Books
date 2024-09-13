@@ -1,6 +1,6 @@
 body {
     margin: 1rem;
-    background-color: black;
+    background-color: #000a27;
     font-family: "Roboto", system-ui;
 }
 
@@ -8,7 +8,7 @@ h1 {
     color: white;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
@@ -21,9 +21,7 @@ h1 {
     border-radius: 1rem;
     z-index: 10;
     width: 30rem;
-    height: auto;
     margin-top: 1rem;
-
 }
 
 .imagem {
@@ -43,13 +41,13 @@ h1 {
     color: white;
     width: 100%;
     height: 100%;
+    text-align: start;
 }
 
 h3,
 h5 {
     text-align: start;
 }
-
 
 .pages {
     width: 95%;
@@ -63,7 +61,6 @@ h5 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: -2rem;
 }
 
 .pesquisas input {
@@ -82,10 +79,13 @@ h5 {
     color: white;
     border-radius: 1rem;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 p {
     color: white;
+    text-align: start;
 }
 
 .container {
@@ -99,9 +99,10 @@ p {
     background-color: rgba(50, 0, 90, 0.247);
     padding: 1rem;
     border-radius: 1rem;
+    height: auto;
 }
 
-a{
+.container a {
     background-color: orange;
     padding: 1rem;
     border-radius: 1rem;
@@ -111,3 +112,105 @@ a{
     font-size: 0.9rem;
 }
 
+.pages button {
+    background-color: rgba(255, 166, 0, 0.678);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    margin-right: -1rem;
+    transition: background-color 0.5s ease;
+    height: 2rem;
+}
+
+.pages button:hover {
+    background-color: orange;
+}
+
+
+.pages {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.pages img {
+    cursor: pointer;
+}
+
+.pages img:hover {
+    filter: sepia(100%) brightness(40%) contrast(120%);
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    width: 100%;
+    justify-content: center;
+}
+
+#NovoEstilo {
+    display: flex;
+    border: 1px solid black;
+    padding: 0.5rem;
+    background-color: rgb(50, 0, 90);
+    border-radius: 1rem;
+    width: 30rem;
+    margin: 1rem;
+    height: auto;
+
+}
+
+#titulo_livros {
+    text-align: center;
+    display: flex;
+    color: white;
+    padding: 1rem;
+    font-size: 1.5rem;
+    justify-content: space-around;
+    border-bottom: 2px white solid;
+   
+}
+
+
+#alinhar_estante{
+    text-align: center;
+}
+
+#titulo_livros a{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    
+}
+
+#titulo_livros a:hover{
+    color: orange;
+    transition: color 0.2s ease;
+}
+
+#alerta{
+    color: rgb(0, 0, 0);
+    margin-bottom: -0.5rem;
+    background-color: orange;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+
+
+.ocultar {
+    display: none;
+}
+
+.pagina h5{
+    color: white;
+    font-size: 1rem;
+}
+
+.pagina span{
+    color: rgb(145, 255, 0);
+}
