@@ -211,8 +211,7 @@ p {
 
 @media (max-width: 768px) {
     #content, #NovoEstilo {
-        width: 28rem;
-        margin: 0.5rem;
+        width: 25rem;
     }
 
     .items {
@@ -254,8 +253,9 @@ p {
     }
 
     #description {
-        width: 100%;
+        width: 90%;
         max-width: none;
+        text-align: center;
     }
 
     #titulo_livros {
