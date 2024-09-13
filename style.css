@@ -209,7 +209,7 @@ p {
     color: rgb(145, 255, 0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     #content, #NovoEstilo {
         width: 20rem;
     }
