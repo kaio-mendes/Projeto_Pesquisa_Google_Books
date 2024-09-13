@@ -271,3 +271,14 @@ p {
         margin-right: 0.5rem;
     }
 }
+
+.leitura p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: -1rem;
+    background-color: w;
+}
+
