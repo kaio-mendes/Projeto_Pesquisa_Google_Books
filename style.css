@@ -44,8 +44,7 @@ h1 {
     text-align: start;
 }
 
-h3,
-h5 {
+h3, h5 {
     text-align: start;
 }
 
@@ -95,13 +94,12 @@ p {
 }
 
 #description {
-    text-align: center;
+    text-align: justify;
     background-color: rgba(50, 0, 90, 0.247);
     padding: 1rem;
     border-radius: 1rem;
     height: auto;
     width: 40rem;
-    text-align: justify;
 }
 
 .container a {
@@ -130,7 +128,6 @@ p {
 .pages button:hover {
     background-color: orange;
 }
-
 
 .pages {
     display: flex;
@@ -164,7 +161,6 @@ p {
     width: 30rem;
     margin: 1rem;
     height: auto;
-
 }
 
 #titulo_livros {
@@ -175,27 +171,24 @@ p {
     font-size: 1.5rem;
     justify-content: space-around;
     border-bottom: 2px white solid;
-   
 }
 
-
-#alinhar_estante{
+#alinhar_estante {
     text-align: center;
 }
 
-#titulo_livros a{
+#titulo_livros a {
     text-decoration: none;
     color: inherit;
     font-weight: 600;
-    
 }
 
-#titulo_livros a:hover{
+#titulo_livros a:hover {
     color: orange;
     transition: color 0.2s ease;
 }
 
-#alerta{
+#alerta {
     color: rgb(0, 0, 0);
     margin-bottom: -0.5rem;
     background-color: orange;
@@ -203,16 +196,69 @@ p {
     border-radius: 1rem;
 }
 
-
 .ocultar {
     display: none;
 }
 
-.pagina h5{
+.pagina h5 {
     color: white;
     font-size: 1rem;
 }
 
-.pagina span{
+.pagina span {
     color: rgb(145, 255, 0);
+}
+
+@media (max-width: 768px) {
+    #content, #NovoEstilo {
+        width: 28rem;
+        margin: 0.5rem;
+    }
+
+    .items {
+        margin-left: 1;
+    }
+
+    .pages {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 15rem;
+    }
+
+    .pages button {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    .pages img {
+        height: 1rem;
+    }
+
+    .ser {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .pesquisas input{
+        width: 70%;
+        margin-top: 1rem;
+    }
+
+    .pesquisas button {
+        width: 30%;
+        margin-top: 1rem;
+    }
+
+    #description {
+        width: 100%;
+        max-width: none;
+    }
+
+    #titulo_livros {
+        font-size: 1.2rem;
+    }
 }
