@@ -211,7 +211,7 @@ p {
 
 @media (max-width: 768px) {
     #content, #NovoEstilo {
-        width: 25rem;
+        width: 24rem;
     }
 
     .items {
